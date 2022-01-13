@@ -71,6 +71,8 @@ ul {
 
 /*start header*/
 header {
+  display: flex;
+  align-items: center;
   height: 72px;
   background-color: white;
   box-shadow: 0 0 10px #ddd;
@@ -103,7 +105,7 @@ header .logo {
   letter-spacing: 0.1rem;
 }
 
-header .mega-menu {
+div.mega-menu {
   display: flex;
   gap: 40px;
   position: absolute;
@@ -119,12 +121,22 @@ header .mega-menu {
   opacity: 0;
   z-index: -1;
 }
-header nav ul li a:hover .mega-menu {
+
+li.MM:hover  .mega-menu{
   opacity: 1;
   z-index: 100;
 }
 header .mega-menu img {
   max-width: 100%;
+}
+
+.mega-menu .links {
+  display: grid;
+
+}
+
+.mega-menu .links i {
+  color: var(--main-color);
 }
 header .mega-menu ul {
   align-items: center;
