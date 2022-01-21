@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 :root {
-  --main-color: #2196f3;
+  --main-color: rgba(33, 150, 243, 1);
   --main-color-alt: #1787e0;
   --main-transition: 0.3s;
   --main-padding-top: 100px;
@@ -109,6 +109,16 @@ ul {
     height: 200%;
 
   }
+}
+
+@keyframes change-background {
+  0% , 100% {
+    background: url("../imgs/discount-background1.jpg");
+  }
+  50% {
+    background: url("../imgs/discount-background2.jpg");
+  }
+
 }
 /*start header*/
 header {
@@ -304,6 +314,7 @@ section.landing {
 }
 section.landing .container {
   display: flex;
+  height: 100vh;
 }
 
 section.landing .container:before {
@@ -322,6 +333,7 @@ section.landing .container .main-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 300px;
 
  }
 
@@ -342,8 +354,19 @@ section.landing .container .dan-img img{
   max-width: 90%;
   animation: up-and-down 5s linear infinite;
   position: relative;
+  height: 500px;
 }
+@media (max-width: 1200px) {
+  section.landing .container .dan-img img {
+    display: none;
+  }
+  section.landing .container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 
+}
 section.landing i {
   position: absolute;
   bottom: 0;
@@ -1185,6 +1208,7 @@ section.top-videos {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   background-color: white;
+
 }
 
 section.top-videos .container{
@@ -1192,6 +1216,12 @@ section.top-videos .container{
   gap: 15px;
 }
 
+@media (max-width: 900px) {
+  section.top-videos .container {
+    flex-direction: column;
+  }
+
+}
 section.top-videos .container .left {
   background-color: var(--section-background);
   border-radius: 10px;
@@ -1263,4 +1293,258 @@ section.top-videos .container .right div {
   font-weight: bold;
 }
 
-/* 123 end top videos*/
+/* 1234 end top videos*/
+/*start stats*/
+section.stats {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  position: relative;
+  z-index: 10;
+}
+
+section.stats:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+section.stats:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url("../imgs/stats.jpg");
+  background-size: cover;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index:-2;
+
+}
+
+section.stats h2 {
+  text-align: center;
+  font-size: 45px;
+}
+section.stats .container {
+display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+section.stats .container .box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+  width: 250px;
+  padding: 20px;
+  border-radius: 6px;
+  position: relative;
+  margin: 0 auto;
+}
+section.stats .container .box:before {
+  content: "";
+  height: 0;
+  width: 5px;
+  background-color: var(--main-color);
+  left: 0;
+  top: 0;
+  position: absolute;
+  transition: var(--main-transition);
+}
+
+section.stats .container .box:after {
+  content: "";
+  height: 0;
+  width: 5px;
+  background-color: var(--main-color);
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  transition: var(--main-transition);
+}
+
+section.stats .container .box:hover::before,
+section.stats .container .box:hover::after {
+  height: 100%;
+}
+section.stats .container .box i {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+section.stats .container .box span {
+  font-size: 25px;
+  line-height: 1.8;
+  color: #333131;
+}
+section.stats .container .box .number {
+  font-weight: bold;
+  font-size: 45px;
+}
+section.stats .container .box span.text {
+  font-weight: bold;
+  color: var(--main-color);
+}
+/*end stats*/
+
+/*start discount*/
+section.discount {
+  display: flex;
+  min-height: 100vh;
+
+}
+@media (max-width: 900px) {
+  section.discount {
+    flex-direction: column;
+
+  }
+}
+section.discount .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex: 1;
+  background-color: rgba(33, 150, 243, 0.95);
+  position: relative;
+}
+section.discount .text:before {
+  content: "";
+  background: url("../imgs/discount-background1.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  animation: change-background 10s linear infinite  ;
+}
+section.discount .text h2 {
+  font-weight: bold;
+  font-size: 35px;
+}
+section.discount .text p {
+  width: 50%;
+  font-size: 18px;
+}
+section.discount .text img {
+  width: 50%
+}
+section.discount form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+section.discount form h2 {
+  font-size: 30px;
+}
+section.discount form input {
+  width: 300px;
+  height: 50px;
+  margin: 10px;
+  padding-left: 20px;
+  background-color: rgba(119, 119, 119, 0.1);
+  border-color: rgba(105, 104, 104, 0.1);
+}
+
+section.discount form textarea {
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: rgba(119, 119, 119, 0.1);
+  border-color: rgba(105, 104, 104, 0.1);
+}
+
+section.discount form input[type="button"] {
+  width: fit-content;
+  margin: 0;
+  padding: 10px 20px ;
+  font-weight: bold;
+
+  color: white;
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+/*end discount*/
+
+/*start footer*/
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: grid;
+  background-color: #333131;
+  color: white;
+  grid-template-columns: repeat(auto-fit, minmax(250px , 1fr));
+gap: 10px}
+
+
+
+footer .box>h2{
+  font-size: 45px;
+  color: white;
+  margin:10px auto ;
+  text-align: center;
+}
+footer .box p {
+  text-align: center;
+}
+footer .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .social li{
+  padding: 10px;
+  background-color: #777777;
+  margin: 2px;
+
+}
+
+footer .social li i{
+  color: white;
+}
+
+footer .links li{
+  padding: 10px;
+}
+
+footer .links li:before {
+  content: "\F101";
+  font-family: "Font Awesome 5 Free";
+  left: 0;
+  font-weight: 900;
+  margin-right: 10px;
+  color: var(--main-color);
+}
+
+footer .line {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+footer .line i {
+  padding: 10px;
+}
+
+footer .footer-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit , minmax(120px,1fr));
+}
+footer .footer-gallery img {
+  width: 110px;
+  margin: 10px;
+  border: 5px solid white;
+}
+
+/*end footer*/
